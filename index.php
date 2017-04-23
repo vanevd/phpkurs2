@@ -1,21 +1,20 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Test</title>
-<link href="css/style.css rel="stylesheet" type="text/css"/>
-// насочва към файла за дизайн
-<style>
-// дава дизайн за конкретната страница
-</style>
+  <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Test</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+  <style>
+      
+  </style>    
 </head>
-<header>
-</header>
+
 <body>
-<p class =''client">
+<p class="client">    
 Ivan<br>
 Petrov<br>
 Ivanov<br>
 </p>
+<p class="client1">    
 Иван<br>
 Петров<br>
 Иванов<br>
@@ -31,9 +30,59 @@ Ivanov<br>
 <div>
 Ivan
 </div>
+<p>
+Иван Петров<br>
+</p>
 
+<table border="1" style="" class="client2">
+    <tr>
+        <td class="client">Ivan</td>
+        <td>Petrov</td>
+        <td>0878150111</td>
+        <td>ivan@abv.bg</td>
+    </tr>    
+    <tr>
+        <td>Hristo</td>
+        <td>Ivanov</td>
+        <td>0878150111</td>
+        <td>ivan@abv.bg</td>
+    </tr>    
+    
+</table>
 
-<div class=''client''>
-</div>
-</body>
-</html>
+<div class="client">
+Dimitar Ivanov 1   
+</div>    
+<div class="client">
+Dimitar Ivanov 2   
+</div>    
+<div class="client">
+Dimitar Ivanov 3   
+</div>    
+<div class="client">
+Dimitar Ivanov 4   
+</div>    
+<div class="client">
+Dimitar Ivanov 4   
+</div>    
+<div class="client">
+Dimitar Ivanov 4   
+</div>    
+<div class="client">
+Dimitar Ivanov 4   
+</div>    
+<div class="client">
+Dimitar Ivanov 4   
+</div>    
+<div class="client">
+Dimitar Ivanov 4   
+</div>    
+<div class="client">
+Dimitar Ivanov 4   
+</div>    
+
+<div class="client1">Petar Petrov</div>    
+
+</body>      
+
+</html>    
