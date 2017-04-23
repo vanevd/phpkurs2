@@ -1,29 +1,39 @@
-\body {
-    background: #990099
+body {
+    background-color:#AAAAAA; 
 }
 
-.client {
+p {
+    color:blue;
+    background-color:yellow;
+}
+table {
+    color:blue;
+    background-color:grey;
+}
+
+td.client {
     color:red;
 }
-P {
-    color:blue;
-    background:black;
-}
-p.client1 {
-    color:yellow;
-}
-table{
-    color:green;
-}
+
 div.client {
-    color:greenyellow;
-    border: 1px solid red;
-    float: left;
-    width: 200px;
-    padding: 10px;
-    height: 50px;
-    margin: 5px;
+    color:yellow;
+    \border: 1px solid red;
+    background-color:#BBBBBB;
+    width:200px;
+    height:50px;
+    float:left;
+    padding:5px;
+    margin:5px;
 }
+
 div.client1 {
-    clear:right;
+    clear:both;
+}
+
+div.client2 {
+    float:left;
+}
+
+td {
+    color:green;
 }
