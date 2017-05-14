@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 $clients = [];
 $client = [];
 $client['first_name'] = "Peter";
@@ -18,7 +21,5 @@ $client['last_name'] = "Dimitrov";
 $client['email'] = "dimitar@abv.bg";
 $client['phone'] = "0878555666";
 $clients[] = $client;
-$clients[] = "sdkjdfkdjfh";
-echo $clients[1]['email'] . "\n";
-var_dump($clients);
 
+$_SESSION['clients'] = $clients;
