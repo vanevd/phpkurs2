@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Clients and Products</title>
+</head>
+
+<body>
+    <table border="1">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    #tr_client#
+    <tr>
+        <td>{{key}}</td>
+        <td>{{first_name}}</td>
+        <td>{{last_name}}</td>
+        <td>{{email}}</td>
+        <td>{{phone}}</td>
+    </tr>
+    #/tr_client#
+</table>
+<br><br>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Price</th>
+    </tr>
+    #tr_product#
+    <tr>
+        <td>{{key}}</td>
+        <td>{{name}}</td>
+        <td>{{code}}</td>
+        <td>{{price}}</td>
+    </tr>
+    #/tr_product#
+</table>
+
+</body>
+</html>

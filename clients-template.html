@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Clients</title>
+</head>
+
+<body>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    #tr_client#
+    <tr>
+        <td>{{key}}</td>
+        <td>{{first_name}}</td>
+        <td>{{last_name}}</td>
+        <td>{{email}}</td>
+        <td>{{phone}}</td>
+        <td><a href="/clients.php?client_id={{key}}">edit</a></td>
+        <td><a href="/clients.php?delete_id={{key}}">delete</a></td>
+    </tr>
+    #/tr_client#
+</table>
+<br>
+<a href="/clients.php">Add new client</a>
+
+<h3>{{error}}</h3>
+<form method="POST" action="clients.php">
+<input type="hidden" name="client_id" value="{{client_id}}">
+First Name<br>
+<input type="text" name="first_name" value="{{first_name}}">
+<br><br>
+Last Name<br>
+<input type="text" name="last_name" value="{{last_name}}">
+<br><br>
+Email<br>
+<input type="text" name="email" value="{{email}}">
+<br><br>
+Phone<br>
+<input type="text" name="phone" value="{{phone}}">
+<br><br>
+<input type="submit" name="send_btn" value="Send">
+</form>
+
+
+</body>
+</html>
