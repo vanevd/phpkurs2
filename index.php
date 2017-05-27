@@ -1,67 +1,72 @@
 <html>
-<head>
-  <META http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Test</title>
-  <link href="/css/style.css" rel="stylesheet" type="text/css"/>
-  <style>
-      
-  </style>    
-</head>
+	<head>
+<META http-eqiv="Content-Type" content="text/html; charset=utf-8">
+<title>Test</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css"/>
+	<style>
 
-<body>
-<p class="client">    
-Ivan<br>
-Petrov<br>
-Ivanov<br>
-</p>
-<p class="client1">    
-Иван<br>
-Петров<br>
-Иванов<br>
-<br>
-<br>
-<table border=''1'' style="" class="client">
-<tr>
-<td>Ivan</td>
-<td>0888564052</td>
-<td>ivan@mail.bg</td>
-
-</tr>
-<div>
-Ivan
-</div>
-<p>
-Иван Петров<br>
-</p>
-
-<table border="1" style="" class="client2">
-    <tr>
-        <td class="client">Ivan</td>
-        <td>Petrov</td>
-        <td>0878150111</td>
-        <td>ivan@abv.bg</td>
-    </tr>    
-    <tr>
-        <td>Hristo</td>
-        <td>Ivanov</td>
-        <td>0878150111</td>
-        <td>ivan@abv.bg</td>
-    </tr>    
+	body{
+	background-color: steelblue;
+	}
+	table{
+		color:red;
+	}
+	p {
+     color: yellow;
     
-</table>
+     text-align: center;
+}		
 
+    tr {
+    	color: darkblue;
+    	text-align: center;
+
+    }
+
+    div {
+    	color: purple;
+    	text-align: left;
+    }
+	</style>
+	</head>
+
+			<body>
+			<p class="client">
+			<i>Maya</i><br>
+			</p>
+			<p>
+			Maya<br>
+			</p>
+			<p>
+			<b>Maya</b><br>
+			</p>
+			<p>
+			<u>Мая Мая Мая</u><br>
+			</p>
+
+			<br><br>
+				<table border="5" style "" class="client">
+				<tr>
+					<td><b>Ivan</b></td>
+					<td><b>Petrov</b></td>
+					<td>0888123456</td>
+					<td>ivan@gmail.com</td>
+				</tr>
+				<tr>
+					<td><b>Petar</b></td>
+					<td><b>Ivanov</b></td>
+					<td>0888654321</td>
+					<td>petar@gmail.com</td>
+				</tr>
+
+
+				</table>
 <div class="client">
-Dimitar Ivanov 1   
-</div>    
-<div class="client3">
-Dimitar Ivanov 1   
-</div>    
-<div class="client3" style="clear:right;">
-Dimitar Ivanov 1   
-</div>    
+<br><br><br>
 
-<div class="client1">Petar Petrov</div>    
+</div>
 
-</body>      
+			</body>	
 
-</html>    
+   
+</html>
