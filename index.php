@@ -53,32 +53,11 @@ Ivan
 <div class="client">
 Dimitar Ivanov 1   
 </div>    
-<div class="client">
-Dimitar Ivanov 2   
+<div class="client3">
+Dimitar Ivanov 1   
 </div>    
-<div class="client">
-Dimitar Ivanov 3   
-</div>    
-<div class="client">
-Dimitar Ivanov 4   
-</div>    
-<div class="client">
-Dimitar Ivanov 4   
-</div>    
-<div class="client">
-Dimitar Ivanov 4   
-</div>    
-<div class="client">
-Dimitar Ivanov 4   
-</div>    
-<div class="client">
-Dimitar Ivanov 4   
-</div>    
-<div class="client">
-Dimitar Ivanov 4   
-</div>    
-<div class="client">
-Dimitar Ivanov 4   
+<div class="client3" style="clear:right;">
+Dimitar Ivanov 1   
 </div>    
 
 <div class="client1">Petar Petrov</div>    
