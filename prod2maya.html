@@ -1,0 +1,83 @@
+<html>
+<head>
+</head>
+<body>
+<?php
+
+session_start();
+
+$products = $_SESSION['products'];
+
+$error = "";
+$id = "";
+$name = "";
+$code = "";
+$price = "";
+$product_id = "";
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        if (isset($_REQUEST['product_id'])) {
+        $product_id = $_REQUEST['product_id'];
+        if (isset($products[$product_id])) {
+            $id = $products[$product_id]['id'];
+            $name = $products[$product_id]['name'];
+            $code = $products[$product_id]['code'];
+            $price = $products[$product_id]['price'];
+        } else {
+            $error = "Product doesn't exist. Please enter new data.";
+        }    
+    }    
+    ?>    
+        <h3><?= $error ?></h3>
+        <form method="POST" action="prod2maya.php">
+        <input type="hidden" name="product_id" value="<?= $product_id ?>">
+        ID<br>
+        <input type="text" name="id" value="<?= $id ?>">
+        <br><br>
+        Name<br>
+        <input type="text" name="name" value="<?= $name ?>">
+        <br><br>
+        Code<br>
+        <input type="text" name="code" value="<?= $code ?>">
+        <br><br>
+        Price<br>
+        <input type="text" name="price" value="<?= $price ?>">
+        <br><br>
+        <input type="submit" name="send_btn" value="Send">
+        </form>
+<?php        
+} elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id = $_REQUEST['id'];
+    $name = $_REQUEST['name'];
+    if (isset($_REQUEST['code'])) {
+        $code = $_REQUEST['code'];
+    } else {
+        $code = "";
+    }
+    if (strlen($code) == 0) {    
+        $code = "n\a";
+        echo "Code missing!";
+    }    
+    $prodect_id = $_REQUEST['product_id'];
+    if (strlen($product_id) > 0) {
+        $products[$product_id]['id'] = $_REQUEST['id'];
+        $products[$product_id]['name'] = $_REQUEST['name'];
+        $products[$product_id]['code'] = $_REQUEST['code'];
+        $products[$product_id]['price'] = $_REQUEST['price'];
+    } else {    
+        $product = [];
+        $product['id'] = $_REQUEST['id'];
+        $product['name'] = $_REQUEST['name'];
+        $product['code'] = $_REQUEST['code'];
+        $product['price'] = $_REQUEST['price'];
+        $product[] = $product;
+    }    
+    echo $id . " " . $name . " saved successfully.<br>";
+    echo "code: " . $code . "<br>";
+} else {
+
+
+}
+$_SESSION['products'] = $products;
+?>
+</body>
+</html>

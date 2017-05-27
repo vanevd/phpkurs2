@@ -11,21 +11,26 @@
         <th>Last Name</th>
         <th>Email</th>
         <th>Phone</th>
+        <admin>
         <th>Edit</th>
         <th>Delete</th>
+        </admin>
     </tr>
-    #tr_client#
+    <tr_client>
     <tr>
         <td>{{key}}</td>
-        <td>{{first_name}}</td>
-        <td>{{last_name}}</td>
-        <td>{{email}}</td>
-        <td>{{phone}}</td>
+        <td>{{ first_name }}</td>
+        <td>{{ last_name }}</td>
+        <td>{{email }}</td>
+        <td>{{phone   }}</td>
+        <admin>
         <td><a href="/clients.php?client_id={{key}}">edit</a></td>
         <td><a href="/clients.php?delete_id={{key}}">delete</a></td>
+        </admin>
     </tr>
-    #/tr_client#
+    </tr_client>
 </table>
+<admin>
 <br>
 <a href="/clients.php">Add new client</a>
 
@@ -33,7 +38,7 @@
 <form method="POST" action="clients.php">
 <input type="hidden" name="client_id" value="{{client_id}}">
 First Name<br>
-<input type="text" name="first_name" value="{{first_name}}">
+<input type="text" name="first_name" value="{{ first_name }}">
 <br><br>
 Last Name<br>
 <input type="text" name="last_name" value="{{last_name}}">
@@ -46,6 +51,7 @@ Phone<br>
 <br><br>
 <input type="submit" name="send_btn" value="Send">
 </form>
+</admin>
 
 
 </body>

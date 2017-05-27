@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $email = $clients[$client_id]['email'];
             $phone = $clients[$client_id]['phone'];
         } else {
-            $error = "Client not exists. Please enter new client data.";
+            $error = "Client doesn't exist. Please enter new data.";
         }    
     }    
     ?>    

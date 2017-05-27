@@ -4,8 +4,21 @@ include "functions.php";
 
 session_start();
 
-$clients = $_SESSION['clients'];
+$admin = 1;
+
+if (isset($_SESSION['clients'])) {
+    $clients = $_SESSION['clients'];
+} else {
+    $clients = [];
+}
+
 $html = file_get_contents("clients-template.html");
+$html = process_template($html);
+if ($admin) {
+    $html = show_tag($html, "admin");
+} else {
+    $html = hide_tag($html, "admin");
+}
 $error = "";
 $first_name = "";
 $last_name = "";
