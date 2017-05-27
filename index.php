@@ -63,7 +63,6 @@
 				</table>
 <div class="client">
 <br><br><br>
-<b>bliah bliah bliah</b>
 
 </div>
 

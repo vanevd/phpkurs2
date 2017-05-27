@@ -17,11 +17,22 @@ td.client {
 
 div.client {
     color:yellow;
-    \border: 1px solid red;
+    border: 1px solid red;
     background-color:#BBBBBB;
     width:200px;
     height:50px;
     float:left;
+    padding:5px;
+    margin:5px;
+}
+
+div.client3 {
+    color:yellow;
+    border: 1px solid red;
+    background-color:#BBBBBB;
+    width:200px;
+    height:50px;
+    float:right;
     padding:5px;
     margin:5px;
 }
@@ -31,7 +42,7 @@ div.client1 {
 }
 
 div.client2 {
-    float:left;
+    float:right;
 }
 
 td {
