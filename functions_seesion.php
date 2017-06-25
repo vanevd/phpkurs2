@@ -55,7 +55,7 @@ function render($template, $tag_name, $data)
     $tag2 = "";
     foreach ($data as $key => $item) {
         $tag1 = $tag;
-        //$tag1 = str_replace("{{key}}", $key, $tag1);
+        $tag1 = str_replace("{{key}}", $key, $tag1);
         foreach ($item as $item_key => $item_value) {
             $tag1 = str_replace("{{" . $item_key . "}}", $item_value, $tag1);
         }

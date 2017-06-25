@@ -1,11 +1,16 @@
 <?php
 
-require_once "functions.php";
-require_once "Client.php";
+include "functions.php";
+
+session_start();
 
 $admin = 1;
-$mysqli = new mysqli("localhost", "php-test", "php-test", "php-test");
-$client = new Client($mysqli, 'clients');
+
+if (isset($_SESSION['clients'])) {
+    $clients = $_SESSION['clients'];
+} else {
+    $clients = [];
+}
 
 $html = file_get_contents("clients-template.html");
 $html = process_template($html);
@@ -24,19 +29,22 @@ $client_id = "";
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_REQUEST['client_id'])) {
         $client_id = $_REQUEST['client_id'];
-        $res = $client->find($client_id);
-        if ($res) {
-            $first_name = $client->first_name;
-            $last_name = $client->last_name;
-            $email = $client->email;
-            $phone = $client->phone;
+        if (isset($clients[$client_id])) {
+            $first_name = $clients[$client_id]['first_name'];
+            $last_name = $clients[$client_id]['last_name'];
+            $email = $clients[$client_id]['email'];
+            $phone = $clients[$client_id]['phone'];
         } else {
             $error .= "Client not exists. Please enter new client data.";
         }    
     }    
     if (isset($_REQUEST['delete_id'])) {
         $delete_id = $_REQUEST['delete_id'];
-        $client->delete($delete_id);
+        if (isset($clients[$delete_id])) {
+            unset($clients[$delete_id]);
+        } else {
+            $error .= "Client not exists. Please enter valid client ID.";
+        }    
     }    
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = $_REQUEST['first_name'];
@@ -58,27 +66,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $client_id = $_REQUEST['client_id'];
     if (strlen($error) == 0) {
         if (strlen($client_id) > 0) {
-            $client->find($client_id);
-            $client->first_name = $_REQUEST['first_name'];
-            $client->last_name = $_REQUEST['last_name'];
-            $client->email = $_REQUEST['email'];
-            $client->phone = $_REQUEST['phone'];
-            $client->update();
+            $clients[$client_id]['first_name'] = $_REQUEST['first_name'];
+            $clients[$client_id]['last_name'] = $_REQUEST['last_name'];
+            $clients[$client_id]['email'] = $_REQUEST['email'];
+            $clients[$client_id]['phone'] = $_REQUEST['phone'];
         } else {    
-            $client->first_name = $_REQUEST['first_name'];
-            $client->last_name = $_REQUEST['last_name'];
-            $client->email = $_REQUEST['email'];
-            $client->phone = $_REQUEST['phone'];
-            $client->insert();
-            $client_id = $client->id;
+            $client = [];
+            $client['first_name'] = $_REQUEST['first_name'];
+            $client['last_name'] = $_REQUEST['last_name'];
+            $client['email'] = $_REQUEST['email'];
+            $client['phone'] = $_REQUEST['phone'];
+            $clients[] = $client;
+            end($clients);
+            $client_id = key($clients);
+            //$first_name = "";
+            //$last_name = "";
+            //$email = "";
+            //$phone = "";
         }    
     }      
 } else {
 
 
 }
+$_SESSION['clients'] = $clients;
 
-$clients = $client->all();
 
 $html = render($html, "tr_client", $clients);
 $html = str_replace("{{error}}", $error, $html);
