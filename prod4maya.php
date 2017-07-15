@@ -23,9 +23,9 @@ $product['price'] = "4.99";
 $products[] = $product;
 $product = [];
 $product['id'] = "3";
-$product['name'] = "Cherries";
-$product['code'] = "177";
-$product['price'] = "4.99";
+$product['name'] = "Cucumbers";
+$product['code'] = "178";
+$product['price'] = "1.99";
 $products[] = $product;
 $product = [];
 $product['id'] = "4";
@@ -58,21 +58,21 @@ $product['name'] = "Cherries";
 $product['code'] = "177";
 $product['price'] = 4.99;
 $products[] = $product;
-$products[] = $product;
+
 $product = [];
 $product['name'] = "Grapes";
 $product['code'] = "179";
 $product['price'] = 5.99;
 $products[] = $product;
-$products[] = $product;
+
 $product = [];
-$product['name'] = "Ptatoes";
+$product['name'] = "Potatoes";
 $product['code'] = "322";
-$product['price'] = 1.29;
+$product['price'] = "1.29";
 $products[] = $product;
 
 $_SESSION['products'] = $products;
-$_SESSION['products'] = $products;
+
 
 
 

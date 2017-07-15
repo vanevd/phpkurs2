@@ -1,4 +1,5 @@
 <?php
+namespace PhpTest;
 
 function process_template($input)
 {

@@ -1,7 +1,7 @@
 <?php
-namespace PhpTest\Models;
+namespace PhpTest;
 
-use PhpTest\Table;
+//use PhpTest\Table;
 
 class Client extends Table
 {

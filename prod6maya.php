@@ -10,7 +10,7 @@ $products = $_SESSION['products'];
 </head>
 
 <body>
-<table border="2">
+<table border="1">
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -23,10 +23,9 @@ foreach ($products as $key => $product) {
 ?>    
     <tr>
         <td><?= $key ?></td>
-        <td><?= $product['id'] ?></td>
         <td><?= $product['name'] ?></td>
         <td><?= $product['code'] ?></td>
-        <td><?= $products['price'] ?></td>
+        <td><?= $product['price'] ?></td>
     </tr>
 <?php    
 }    

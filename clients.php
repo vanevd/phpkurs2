@@ -1,12 +1,13 @@
 <?php
+namespace PhpTest;
+require_once __DIR__ . "/autoload.php";
 
-require_once "functions.php";
-require_once "Client.php";
+use \mysqli;
+use PhpTest\Models\Client;
 
 $admin = 1;
 $mysqli = new mysqli("localhost", "php-test", "php-test", "php-test");
 $client = new Client($mysqli, 'clients');
-
 $html = file_get_contents("clients-template.html");
 $html = process_template($html);
 if ($admin) {
