@@ -1,19 +1,26 @@
 <?php
 namespace PhpTest;
 require_once __DIR__ . "/autoload.php";
+require_once "vendor/autoload.php";
 
 use \mysqli;
 use PhpTest\Models\Client;
+use \Twig_Loader_Filesystem;
+use \Twig_Environment;
+
+$loader = new Twig_Loader_Filesystem('./templates');
+
+$twig = new Twig_Environment($loader);
 
 $admin = 1;
 $mysqli = new mysqli("localhost", "php-test", "php-test", "php-test");
 $client = new Client($mysqli, 'clients');
-$html = file_get_contents("clients-template.html");
-$html = process_template($html);
+//$html = file_get_contents("clients-template.html");
+//$html = process_template($html);
 if ($admin) {
-    $html = show_tag($html, "admin");
+    //$html = show_tag($html, "admin");
 } else {
-    $html = hide_tag($html, "admin");
+    //$html = hide_tag($html, "admin");
 }
 $error = "";
 $first_name = "";
@@ -81,7 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 $clients = $client->all();
 
+/*
 $html = render($html, "tr_client", $clients);
+
 $html = str_replace("{{error}}", $error, $html);
 $html = str_replace("{{client_id}}", $client_id, $html);
 $html = str_replace("{{first_name}}", $first_name, $html);
@@ -90,3 +99,14 @@ $html = str_replace("{{email}}", $email, $html);
 $html = str_replace("{{phone}}", $phone, $html);
 
 echo $html;
+*/
+$data = [];
+$data['clients'] = $clients;
+$data['error'] = $error;
+$data['first_name'] = $first_name;
+$data['last_name'] = $last_name;
+$data['email'] = $email;
+$data['phone'] = $phone;
+$data['client_id'] = $client_id;
+
+echo $twig->render('clients-template.html', $data);
