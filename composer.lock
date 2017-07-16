@@ -4,7 +4,6 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e16d57a5ccf85216d691ae49b5d131fb",
     "content-hash": "c8382bb5d41451b5915013783aaa1c0f",
     "packages": [
         {
@@ -64,7 +63,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-09 14:24:12"
+            "time": "2017-06-09T14:24:12+00:00"
         },
         {
             "name": "twig/twig",
@@ -130,7 +129,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-06-07 18:47:58"
+            "time": "2017-06-07T18:47:58+00:00"
         }
     ],
     "packages-dev": [],
