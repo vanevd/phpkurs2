@@ -1,58 +1,125 @@
 <html>
 <head>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/shop.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+    
 <title>Clients</title>
 </head>
 
 <body>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <admin>
-        <th>Edit</th>
-        <th>Delete</th>
-        </admin>
-    </tr>
-    {% for client in clients %}
-    <tr>
-        <td>{{ client['id'] }}</td>
-        <td>{{ client['first_name'] }}</td>
-        <td>{{ client['last_name'] }}</td>
-        <td>{{ client['email'] }}</td>
-        <td>{{ client['phone'] }}</td>
-        <admin>
-        <td><a href="/clients.php?client_id={{ client['id'] }}">edit</a></td>
-        <td><a href="/clients.php?delete_id={{ client['id'] }}">delete</a></td>
-        </admin>
-    </tr>
-    {% endfor %}
-</table>
-<admin>
-<br>
-<a href="/clients.php">Add new client</a>
 
-<h3>{{error}}</h3>
-<form method="POST" action="clients.php">
-<input type="hidden" name="client_id" value="{{client_id}}">
-First Name<br>
-<input type="text" name="first_name" value="{{ first_name }}">
-<br><br>
-Last Name<br>
-<input type="text" name="last_name" value="{{last_name}}">
-<br><br>
-Email<br>
-<input type="text" name="email" value="{{email}}">
-<br><br>
-Phone<br>
-<input type="text" name="phone" value="{{phone}}">
-<br><br>
-<input type="submit" name="send_btn" value="Send">
-</form>
-</admin>
+<div class="container">   
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Online Shop</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="clients.php">Clients</a></li>
+      <li><a href="products.php">Products</a></li>
+      <li><a href="orders.php">Orders</a></li>
+    </ul>
+  </div>
+</nav>
 
+    <div class="row">
+        <div class="col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                    Clients
+            </div>   
+            <div class="panel-body">
+                <table class="table table-condensed table-curved">
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        {% if admin %}
+                        <th>Edit</th>
+                        <th>Delete</th>
+                        <th>Send Email</th>
+                        {% endif %}
+                    </tr>
+                    {% for client in clients %}
+                    <tr>
+                        <td>{{ client['id'] }}</td>
+                        <td>{{ client['first_name'] }}</td>
+                        <td>{{ client['last_name'] }}</td>
+                        <td>{{ client['email'] }}</td>
+                        <td>{{ client['phone'] }}</td>
+                        {% if admin %}
+                        <td><a href="clients.php?client_id={{ client['id'] }}">edit</a></td>
+                        <td><a href="clients.php?delete_id={{ client['id'] }}">delete</a></td>
+                        <td><a href="clients.php?send_id={{ client['id'] }}">Send Email</a></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% if admin %}
+
+                <div class="alert alert-clients">
+                    <a href="clients.php">Add new client</a>
+                </div>
+
+                {% if error|length > 0 %}
+                <div class="alert alert-danger">
+                    {{error|raw}}
+                </div>    
+                {% endif %}
+
+                {% if success|length > 0 %}
+                <div class="alert alert-success">
+                    {{success|raw}}
+                </div>    
+                {% endif %}
+
+                <form method="POST" action="clients.php">
+                <input type="hidden" name="client_id" value="{{client_id}}">
+                First Name<br>
+                <input type="text" name="first_name" value="{{ first_name }}">
+                <br><br>
+                Last Name<br>
+                <input type="text" name="last_name" value="{{last_name}}">
+                <br><br>
+                Email<br>
+                <input type="text" name="email" value="{{email}}">
+                <br><br>
+                Phone<br>
+                <input type="text" name="phone" value="{{phone}}">
+                <br><br>
+                <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>        
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                    Top Products
+            </div>   
+            <div class="panel-body">
+                sdfdsfsdfsdfdsf<br>
+                sdfdsfsdfsdfdsf<br>
+                sdfdsfsdfsdfdsf<br>
+                sdfdsfsdfsdfdsf<br>
+                sdfdsfsdfsdfdsf<br>
+                sdfdsfsdfsdfdsf<br>
+                sdfdsfsdfsdfdsf<br>
+                sdfdsfsdfsdfdsf<br>
+                sdfdsfsdfsdfdsf<br>
+                sdfdsfsdfsdfdsf<br>
+                sdfdsfsdfsdfdsf<br>
+            </div>
+        </div>        
+
+     </div>   
+    </div>        
+</div>
 </body>
 </html>

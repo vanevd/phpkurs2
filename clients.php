@@ -23,6 +23,7 @@ if ($admin) {
     //$html = hide_tag($html, "admin");
 }
 $error = "";
+$success = "";
 $first_name = "";
 $last_name = "";
 $email = "";
@@ -45,6 +46,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_REQUEST['delete_id'])) {
         $delete_id = $_REQUEST['delete_id'];
         $client->delete($delete_id);
+        $success = "Client deleted successfully";
+    }    
+    if (isset($_REQUEST['send_id'])) {
+        $send_id = $_REQUEST['send_id'];
+        $response = $client->send_email($send_id);
+        if ($response['status'] == 'error') {
+            $error = $response['error'];
+        }
+        if ($response['status'] == 'ok') {
+            $success = $response['message'];
+        }
     }    
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = $_REQUEST['first_name'];
@@ -72,12 +84,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $client->email = $_REQUEST['email'];
             $client->phone = $_REQUEST['phone'];
             $client->update();
+            $success = "Client updated successfully";
         } else {    
             $client->first_name = $_REQUEST['first_name'];
             $client->last_name = $_REQUEST['last_name'];
             $client->email = $_REQUEST['email'];
             $client->phone = $_REQUEST['phone'];
             $client->insert();
+            $success = "Client added successfully";
             $client_id = $client->id;
         }    
     }      
@@ -103,10 +117,12 @@ echo $html;
 $data = [];
 $data['clients'] = $clients;
 $data['error'] = $error;
+$data['success'] = $success;
 $data['first_name'] = $first_name;
 $data['last_name'] = $last_name;
 $data['email'] = $email;
 $data['phone'] = $phone;
 $data['client_id'] = $client_id;
+$data['admin'] = $admin;
 
 echo $twig->render('clients-template.html', $data);
